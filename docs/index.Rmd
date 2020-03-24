@@ -1,9 +1,6 @@
 ---
 title: "COVID19 Tracker"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
+output: markdowntemplates::skeleton
 ---
 
 ```{r setup, include=FALSE}
