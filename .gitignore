@@ -53,4 +53,6 @@ package-lock.json
 ### sandbox folder ###
 sandbox/
 
+### jekyll ###
+docs/_site/
 # End of https://www.gitignore.io/api/r
