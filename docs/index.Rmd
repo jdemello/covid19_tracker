@@ -33,9 +33,9 @@ fig
 <br>
 <br>
 
-#### Cummulative Fatalities (per million)
+#### Cummulative Fatalities Adjusted by Population
 
-Fatalities adjusted by the country population.
+<br>
 
 ```{r}
 fig <- readRDS("../figures/mort_pm.RDS")
