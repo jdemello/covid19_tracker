@@ -1,6 +1,7 @@
 ---
 title: "COVID19 Tracker"
-output: markdowntemplates::skeleton
+output: 
+  html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -15,18 +16,48 @@ for(pkg in pkgs){library(pkg, character.only = TRUE)};rm(pkg, pkgs)
 ```
 
 
-Last updated: 
+__Last updated: `r format(Sys.time(), "%d %B, %Y (%H:%M:%S)")`__
 
-## Mortality
 
-### Case Fatality Rate (CFR)
+### Mortality
 
-The observed fatalities divided by the total number of confirmed cases results in the case fatality rate (CFR)
+#### Cumulative Reported Fatalities
+
+The graph below is the tally of fatalities since starting from 10<sup>th</sup> confirmed death. The y-axis is log scaled.
+
+```{r}
+fig <- readRDS("../figures/deaths_acc.RDS")
+fig
+```
+
+<br>
+<br>
+#### Cummulative Fatalities by Country Population
+
+```{r}
+fig <- readRDS("../figures/mort_pm.RDS")
+fig
+```
+
+<br>
+<br>
+
+#### Case Fatality Rate (CFR)
+
+The observed fatalities divided by the total number of confirmed cases results in the case fatality rate (CFR).
 
 ```{r}
 fig <- readRDS("../figures/cfr.RDS")
 fig
 ```
 
-## Confirmed cases
+<br>
+<br>
 
+### Confirmed cases
+
+### Sources
+
+Confirmed cases and fatalities: [2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19).
+
+Population: [Countries in the world by population (2020)](https://www.worldometers.info/world-population/population-by-country/)

@@ -8,7 +8,7 @@ for(pkg in pkgs){if(sum(.packages() %in% pkg) == 0) library(pkg, character.only 
 rm(pkg, pkgs)
 
 # time series: confirmed cases ----
-url <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
+url <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
 confirmed <- data.table::fread(url, drop = c("Lat", "Long"))
 
 # melt 
@@ -22,7 +22,7 @@ confirmed <- data.table::melt(confirmed, measure.vars=cols,
 confirmed <- confirmed[, .(value = sum(value, na.rm=TRUE)), by = c("Country/Region", "date")]
 
 # time series: deaths ----
-url <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv"
+url <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
 deaths <- data.table::fread(url, drop = c("Lat", "Long"))
 
 # melt 
@@ -36,26 +36,26 @@ deaths <- data.table::melt(deaths, measure.vars=cols,
 deaths <- deaths[, .(value = sum(value, na.rm=TRUE)), by = c("Country/Region", "date")]
 
 # time series: recovered ----
-url <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv"
-recv <- data.table::fread(url, drop = c("Lat", "Long"))
-
-# melt 
-cols <- grep(x=names(recv), pattern = "^\\d", value=TRUE)
-recv <- data.table::melt(recv, measure.vars=cols, 
-                         variable.name="date",
-                         value.factor=FALSE, variable.factor=FALSE)
+  #### DEPRECATED ###
+# url <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv"
+# recv <- data.table::fread(url, drop = c("Lat", "Long"))
+# 
+# # melt 
+# cols <- grep(x=names(recv), pattern = "^\\d", value=TRUE)
+# recv <- data.table::melt(recv, measure.vars=cols, 
+#                          variable.name="date",
+#                          value.factor=FALSE, variable.factor=FALSE)
 
 # cummulative recovered cases by country
 # aggregate recovered count by day by country, some countries have province breakdown
-recv <- recv[, .(value = sum(value, na.rm=TRUE)), by = c("Country/Region", "date")]
+# recv <- recv[, .(value = sum(value, na.rm=TRUE)), by = c("Country/Region", "date")]
 
 # join
-allSets <- list(confirmed, recv, deaths)
 cols <- c("Country/Region", "date") # join keys
-data <- Reduce(function(x,y) x[y, on = cols, nomatch=NA], allSets)
+data <- confirmed[deaths, on = cols, nomatch=NA]
 
 # rename cols
-newCols <- c("country", "conf_count", "recov_count", "death_count")
+newCols <- c("country", "conf_count", "death_count")
 data.table::setnames(data, c("Country/Region", 
                              grep(x=names(data), pattern="value", value=TRUE)),
                      newCols)
@@ -112,7 +112,8 @@ data[, mort_pm := (death_count/pop) * 1e6]
 data[, conf_pm := (conf_count/pop) * 1e6]
 
 # relabel some countries
-cntryLab <- c("South Korea" = "Korea, South")
+cntryLab <- c("South Korea" = "Korea, South",
+              "Taiwan" = "Taiwan*")
 cntrNew <- names(cntryLab)
 
 for(cntry in seq_along(cntryLab)){

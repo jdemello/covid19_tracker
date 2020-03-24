@@ -25,6 +25,8 @@ for(it in seq_along(args[[1]])){
 p <- ggplot(data=d1, aes(x=days, y=death_count, group=country, colour=country)) + 
   geom_line(data=twoDays, aes(x=x, y=y, group=NA, colour=NA),
             colour="grey60", linetype="dashed", size=0.75) +
+  geom_line(data=fiveDays, aes(x=x, y=y, group=NA, colour=NA),
+            colour="grey60", linetype="dashed", size=0.75) +
   geom_line(data=sevenDays, aes(x=x, y=y, group=NA, colour=NA),
             colour="grey60", linetype="dashed", size=0.75) +
   geom_line(size=1) +
@@ -74,18 +76,18 @@ for(ind in inds){
 rm(ind)
 
 fig <- plotly::add_annotations(fig, 
-                               text=c("doubles every\n2 days", 
+                               text=c("doubles every\n2 days",
+                                      "doubles every\n5 days",
                                       "doubles every\nweek"),
-                               x=c(twoDays[, max(x)], sevenDays[, max(x)]),
-                               y=c(log(twoDays[, max(y)]),log(sevenDays[, max(y)])),
+                               x=c(twoDays[, max(x)], fiveDays[, max(x)], sevenDays[, max(x)]),
+                               y=c(log(twoDays[, max(y)]), log(fiveDays[, max(y)]), log(sevenDays[, max(y)])),
                                xref="x",
                                yref="y",
                                font=list(size=9,color="rgba(153,153,153,1)"),
                                showarrow=FALSE,
                                align="center",
                                hovertext=NULL,
-                               textangle=c(-atan2(log(20), 2) * (180/pi), -atan2(log(20), 7) * (180/pi)),
-                               ay=1
+                               xshift=rep(10, 3)
 )
 
 saveRDS(fig, "figures/deaths_acc.RDS")
