@@ -32,6 +32,7 @@ fig
 
 <br>
 <br>
+
 #### Cummulative Fatalities by Country Population
 
 ```{r}
@@ -53,8 +54,6 @@ fig
 
 <br>
 <br>
-
-### Confirmed cases
 
 ### Sources
 
