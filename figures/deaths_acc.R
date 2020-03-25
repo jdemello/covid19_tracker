@@ -53,7 +53,13 @@ fig <- plotly::layout(fig, title = list(text = paste0("Cumulative Reported Fatal
 
 
 # make changes to dashed lines
-for(ind in 1:2){
+# find the indices in plotly construct
+inds <- which(unlist(lapply(fig$x$data, function(x){
+  x$name
+})) == "")
+
+
+for(ind in inds){
   fig$x$data[[ind]]$hoverinfo <- "skip"
   fig$x$data[[ind]]$line$width <- 1
 }
