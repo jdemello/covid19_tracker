@@ -34,7 +34,7 @@ p <- ggplot(data=d1, aes(x=days, y=mort_pm, group=country, colour=country)) +
                      trans = "log",
                      breaks =  2^seq(0, ceiling(log(d1[, max(mort_pm)] +1)/log(2)))) +
   labs(x="Days since confirmed fatalities per million exceeded 1", 
-       y="Cumulative fatalities per million", 
+       y="Cumulative fatalities per million (log scale)", 
        title="Cumulative Reported Fatalities (per million) from COVID-19",
        caption = "Source: CSSE COVID-19 Dataset") + 
   theme_minimal() + 

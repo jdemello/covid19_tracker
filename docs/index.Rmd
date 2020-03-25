@@ -24,7 +24,7 @@ _Last updated: `r format(Sys.time(), "%d %B, %Y (%H:%M:%S)")`_
 
 #### Cumulative Reported Fatalities
 
-The graph below is the tally of fatalities since starting from 10<sup>th</sup> confirmed death. The y-axis is log scaled.
+The graph below represents the number of fatalities since 10<sup>th</sup> confirmed death. In the absence of widespread testing --which is the case for most countires -- cumulative fatalities could be a more precise indicator of the spread of the virus and its trajectory over time. We want the curves to bend more horizontally. A lower inclination of the curve indicates a slow down in the death rate which then can be associated with a reduction of the virus spreading. The y-axis is log scaled.
 
 ```{r}
 fig <- readRDS("../figures/deaths_acc.RDS")
@@ -36,7 +36,7 @@ fig
 
 #### Cummulative Fatalities Adjusted by Population
 
-<br>
+Holding other factors constant, countries with a large population tend to have higher death totals. Adjusting by total population gives some information about the prevalence of deaths in the country. The y-axis is log scaled.
 
 ```{r}
 fig <- readRDS("../figures/mort_pm.RDS")
@@ -48,7 +48,7 @@ fig
 
 #### Case Fatality Rate (CFR)
 
-The observed fatalities divided by the total number of confirmed cases results in the case fatality rate (CFR).
+The observed fatalities divided by the total number of confirmed cases results in the case fatality rate (CFR). This indicator relies on each country testing policy. In general, more widespread testing leads to lower CFRs. 
 
 ```{r}
 fig <- readRDS("../figures/cfr.RDS")
