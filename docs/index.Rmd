@@ -1,7 +1,8 @@
 ---
 title: "COVID19 Tracker"
 output: 
-  html_document
+  html_document:
+    css: style.css
 ---
 
 ```{r setup, include=FALSE}
@@ -18,9 +19,6 @@ for(pkg in pkgs){library(pkg, character.only = TRUE)};rm(pkg, pkgs)
 [git repo](https://github.com/jdemello/covid19_tracker)
 
 _Last updated: `r format(Sys.time(), "%d %B, %Y (%H:%M:%S)")`_
-
-
-### Mortality
 
 #### Cumulative Reported Fatalities
 
