@@ -15,8 +15,10 @@ for(pkg in pkgs){library(pkg, character.only = TRUE)};rm(pkg, pkgs)
 # dir("../figures/")
 ```
 
+[![GitHub forks](https://img.shields.io/github/forks/jdemello/StrapDown.js.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/jdemello/covid19_tracker/network/)
+[![GitHub stars](https://img.shields.io/github/stars/jdemello/StrapDown.js.svg?style=social&label=Star&maxAge=2592000)](https://github.com/jdemello/covid19_tracker/stargazers/)
 
-__Last updated: `r format(Sys.time(), "%d %B, %Y (%H:%M:%S)")`__
+_Last updated: `r format(Sys.time(), "%d %B, %Y (%H:%M:%S)")`_
 
 
 ### Mortality
