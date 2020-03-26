@@ -56,6 +56,18 @@ fig
 <br>
 <br>
 
+### Browse Data
+
+Most recent data shown below.
+
+```{r}
+tab <- readRDS("../tables/mortality_table.RDS")
+tab
+```
+
+<br>
+<br>
+
 ### Sources
 
 Confirmed cases and fatalities: [2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19).
