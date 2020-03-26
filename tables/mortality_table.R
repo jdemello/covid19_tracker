@@ -16,6 +16,9 @@ out <- data[date == max(date, na.rm=TRUE)]
 # reorg cols
 out <- out[, .(country, date, pop, conf_count, death_count, conf_pm, mort_pm)]
 
+# order data by confirmed cases
+out <- out[order(-conf_count),]
+
 # round per mil cols
 cols <- grep(x=names(out), pattern="pm$", value=TRUE)
 out[, (cols) := lapply(.SD, round, 2L), .SDcols=cols] 
@@ -24,8 +27,6 @@ out[, (cols) := lapply(.SD, round, 2L), .SDcols=cols]
 cols <- c("pop", "conf_count", "death_count")
 out[, (cols) := lapply(.SD, scales::number), .SDcols=cols]
 
-# order data by confirmed cases
-out <- out[order(-conf_count),]
 
 # JS code, get subtotals
 jsCallback <- readChar("tables/mortality_table_totals.js", 1e5)
