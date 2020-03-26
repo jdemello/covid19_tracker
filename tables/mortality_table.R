@@ -23,10 +23,6 @@ out <- out[order(-conf_count),]
 cols <- grep(x=names(out), pattern="pm$", value=TRUE)
 out[, (cols) := lapply(.SD, round, 2L), .SDcols=cols] 
 
-# format cols
-cols <- c("pop", "conf_count", "death_count")
-out[, (cols) := lapply(.SD, scales::number), .SDcols=cols]
-
 
 # JS code, get subtotals
 jsCallback <- readChar("tables/mortality_table_totals.js", 1e5)
@@ -50,6 +46,8 @@ out <- DT::datatable(out,caption = shiny::tags$caption("COVID-19 Mortality Data"
                                  className = "dt-left", targets = 0
                                )))
   )
+
+out <- DT::formatCurrency(out, 3:5, "", mark = " ", digits = 0)
 
 saveRDS(out, "tables/mortality_table.RDS")
 rm(list=ls())
