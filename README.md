@@ -1,4 +1,4 @@
-<h3>[Visit the project's website](https://jdemello.github.io/covid19_tracker/)<h3>
+<h3>Visit this project's webpage: [https://jdemello.github.io/covid19_tracker/](https://jdemello.github.io/covid19_tracker/)</h3>
 
 ## About
 
