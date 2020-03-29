@@ -56,7 +56,18 @@ fig
 <br>
 <br>
 
-### Browse Data
+#### Day-over-day Death Rate
+
+A country is flattening the cumulative confirmed death count curve if its day-over-day death rate (or daily fatality rate) is decreasing over time[1]. A flat daily rate implies exponential growth (above 0%).
+
+```{r}
+fig <- readRDS("../figures/death_rate.RDS")
+```
+
+<br>
+<br>
+
+#### Browse Data
 
 Most recent data shown below.
 
@@ -73,3 +84,5 @@ tab
 Confirmed cases and fatalities: [2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19).
 
 Population: [Countries in the world by population (2020)](https://www.worldometers.info/world-population/population-by-country/)
+
+[^1]: Daily fatality rate is defined as: $\delta_t = \frac{\Delta\text{death}_{t,t-1}}{\text{death}_{t-1}}$, where $\text{death}_t$ is the cumulative deaths up to time $t$ --the same applies to $t-1$. 
