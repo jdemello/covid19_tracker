@@ -62,6 +62,7 @@ A country is flattening the cumulative confirmed death count curve if its day-ov
 
 ```{r}
 fig <- readRDS("../figures/death_rate.RDS")
+fig
 ```
 
 <br>
