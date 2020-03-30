@@ -22,7 +22,7 @@ _Last updated: `r format(Sys.time(), "%d %B, %Y (%H:%M:%S)")`_
 
 #### Cumulative Reported Fatalities
 
-The graph below represents the number of fatalities since 10<sup>th</sup> confirmed death. In the absence of widespread testing --which is the case for most countires -- cumulative fatalities could be a more precise indicator of the spread of the virus and its trajectory over time. We want the curves to bend more horizontally. A lower inclination of the curve indicates a slow down in the death rate which then can be associated with a reduction of the virus spreading. The y-axis is log scaled.
+The graph below represents the number of fatalities since 10<sup>th</sup> confirmed death. In the absence of widespread testing --which is the case for most countires -- cumulative fatalities could be a more precise indicator of the spread of the virus and its trajectory over time. We want the curves to bend more horizontally. A lower inclination of the curve indicates a slowdown of cumulative deaths. The y-axis is log scaled.
 
 ```{r}
 fig <- readRDS("../figures/deaths_acc.RDS")
@@ -58,7 +58,7 @@ fig
 
 #### Day-over-day Death Rate
 
-A country is flattening the cumulative confirmed death count curve if its day-over-day death rate (or daily fatality rate) is decreasing over time[1]. A flat daily rate implies exponential growth (above 0%).
+A country is flattening the cumulative confirmed death count curve if its day-over-day death rate (or daily fatality rate) is decreasing over time[^1]. A flat daily rate implies exponential growth (above 0%).
 
 ```{r}
 fig <- readRDS("../figures/death_rate.RDS")
@@ -86,4 +86,4 @@ Confirmed cases and fatalities: [2019 Novel Coronavirus COVID-19 (2019-nCoV) Dat
 
 Population: [Countries in the world by population (2020)](https://www.worldometers.info/world-population/population-by-country/)
 
-[^1]: Daily fatality rate is defined as: $\delta_t = \frac{\Delta\text{death}_{t,t-1}}{\text{death}_{t-1}}$, where $\text{death}_t$ is the cumulative deaths up to time $t$ --the same applies to $t-1$. 
+[^1]: Daily fatality rate is defined as: $\delta_t = \frac{\Delta\text{death}_{t,t-1}}{\text{death}_{t-1}}$, where $\text{death}_t$ is the cumulative deaths up to time $t$ --the same applies to $t-1$.
