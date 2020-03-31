@@ -32,5 +32,6 @@ scripts <- dir("figures/", pattern = "R$", full.names = TRUE)
 scripts <- grep(x=scripts, pattern="figures/(?!plot)", value=TRUE, perl = TRUE)
 
 for(script in scripts){
+  cat(paste0("Running: ", script, "...\n\n"))
   source(script)
 }

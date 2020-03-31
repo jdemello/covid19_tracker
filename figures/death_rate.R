@@ -71,5 +71,5 @@ for(ind in inds){
 }
 rm(ind)
 
-rm(list=ls()[!grepl(x=ls(), pattern="^fig$")])
 saveRDS(fig, "figures/death_rate.RDS")
+rm(list=ls()[!grepl(x=ls(), pattern="^(data|maxDate|cntrys)$")])
