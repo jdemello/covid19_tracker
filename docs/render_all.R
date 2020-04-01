@@ -10,4 +10,4 @@ rmdFiles <- dir("docs/", pattern = "\\.Rmd$", full.names = TRUE)
 # render all
 for(rmdFile in rmdFiles) rmarkdown::render(rmdFile)
 
-rm(rmdFile, rmdFiles)
+rm(rmdFile, rmdFile)
