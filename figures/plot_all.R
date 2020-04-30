@@ -23,7 +23,7 @@ source("R/zzz.R")
 # parameters 
   # object with list of countries
 cntrys <- c("Australia", "Brazil", "Belgium", "Canada", "Colombia", "France", "Germany", "India", 
-            "Italy", "Japan", "Netherlands", "South Korea", "Spain", "Portugal", "United Kingdom", "US")
+            "Italy", "Japan", "Netherlands", "South Korea", "Spain", "Sweden", "Portugal", "United Kingdom", "US")
   # date
 maxDate <- format(data[, max(date,na.rm=TRUE)], "%B %d, %Y")
 
