@@ -55,4 +55,8 @@ sandbox/
 
 ### jekyll ###
 docs/_site/
+
+# bash scripts
+lazygit.sh
+
 # End of https://www.gitignore.io/api/r
