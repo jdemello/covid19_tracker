@@ -3,14 +3,14 @@
   # load libraries
 pkgs <- c("data.table", "plotly", "ggplot2")
 for(pkg in pkgs){
-  if(!nzchar(system.file(package = pkg))) install.packages(pkg); library(pkg, character.only = TRUE)
+  if(!nzchar(system.file(package = pkg))) install.packages(pkg, repos = "http://cran.utstat.utoronto.ca/"); library(pkg, character.only = TRUE)
 }
 rm(pkg, pkgs)
 
   # need these pkgs --> install them if necessary
 pkgs <- c("ggsci", "lubridate", "scales")
 for(pkg in pkgs){
-  if(!nzchar(system.file(package = pkg))) install.packages(pkg) # if not in sys -> install
+  if(!nzchar(system.file(package = pkg))) install.packages(pkg, repos="http://cran.utstat.utoronto.ca/") # if not in sys -> install
 }
 rm(pkg,pkgs)
 

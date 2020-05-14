@@ -1,7 +1,7 @@
 # install pkgs if needed
 pkgs <- c("data.table", "DT", "scales")
 
-for(pkg in pkgs){if(!nzchar(system.file(package = pkg))) install.packages(pkg)}
+for(pkg in pkgs){if(!nzchar(system.file(package = pkg))) install.packages(pkg, repos="http://cran.utstat.utoronto.ca/")}
 
 # load pkgs
 pkgs <- c("data.table")

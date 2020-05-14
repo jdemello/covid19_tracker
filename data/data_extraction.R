@@ -68,7 +68,7 @@ data[, mort := death_count/conf_count]
   # need these pkgs --> install them if necessary
 pkgs <- c("xml2", "rvest", "lubridate")
 for(pkg in pkgs){
-  if(!nzchar(system.file(package = pkg))) install.packages(pkg) # if not in sys -> install
+  if(!nzchar(system.file(package = pkg))) install.packages(pkg, repos="http://cran.utstat.utoronto.ca/") # if not in sys -> install
 }
 rm(pkg,pkgs)
 

@@ -1,6 +1,13 @@
 if(length(grep("(?i)Git//bin", Sys.getenv("PATH"))) == 0) 
   Sys.setenv(PATH=paste0(Sys.getenv("PATH"),";C://Program Files//Git//bin"))
 
+# install.packages
+pkgs <- c("shiny", "rmarkdown")
+for(pkg in pkgs){
+  if(!nzchar(system.file(package = pkg))) install.packages(pkg, repos="http://cran.utstat.utoronto.ca/") # if not in sys -> install
+}
+rm(pkg,pkgs)
+
 # update plots
 source("figures/plot_all.R")
 rm(list=ls()) # remove all objects
