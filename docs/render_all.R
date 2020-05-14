@@ -15,4 +15,4 @@ for(rmdFile in rmdFiles) rmarkdown::render(rmdFile)
 
 rm(rmdFile, rmdFiles)
 
-shell("bash --login -i -c \"./lazygit.sh\"")
+# shell("bash --login -i -c \"./lazygit.sh\"")
