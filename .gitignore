@@ -58,5 +58,6 @@ docs/_site/
 
 # bash scripts
 lazygit.sh
+update_data.sh
 
 # End of https://www.gitignore.io/api/r
