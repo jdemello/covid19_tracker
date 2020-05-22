@@ -1,3 +1,10 @@
+if(!nzchar(Sys.getenv("RSTUDIO_PANDOC"))){
+  cat("Pre-setting 'RSTUDIO_PANDOC' environmental variable to this R-session...\n\n")
+  Sys.setenv("RSTUDIO_PANDOC" = "C:/Program Files/RStudio/bin/pandoc")
+  msg<- paste0("Environmental variable for Pandoc set at: ", Sys.getenv("RSTUDIO_PANDOC"), ".\n\n")
+  cat(msg)
+}
+
 if(length(grep("(?i)Git//bin", Sys.getenv("PATH"))) == 0) 
   Sys.setenv(PATH=paste0(Sys.getenv("PATH"),";C://Program Files//Git//bin"))
 
