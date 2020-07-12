@@ -60,4 +60,9 @@ docs/_site/
 lazygit.sh
 update_data.sh
 
+# stackdumps
+sh.exe.stackdump
+bash.exe.stackdump
+
+.gitmodules
 # End of https://www.gitignore.io/api/r
